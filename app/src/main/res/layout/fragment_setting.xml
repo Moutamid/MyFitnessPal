@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark"
+    android:orientation="vertical"
+    tools:context=".fragments.SettingFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/logout"
+        android:padding="25sp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Suleman Ijaz"
+                android:layout_marginTop="10sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/archivo" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:layout_marginTop="5sp"
+                android:background="@color/grey_dark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:layout_marginTop="5sp"
+                android:background="@color/dark3" />
+
+            <Button
+                android:id="@+id/editProfile"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="5sp"
+                android:drawableEnd="@drawable/arrow_forward"
+                android:drawableTint="@color/grey"
+                android:fontFamily="@font/poppins"
+                android:gravity="start|center"
+                android:text="Edit Profile"
+                android:textColor="@color/grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:layout_marginTop="5sp"
+                android:background="@color/dark3" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="5sp"
+                android:drawableEnd="@drawable/arrow_forward"
+                android:drawableTint="@color/grey"
+                android:fontFamily="@font/poppins"
+                android:gravity="start|center"
+                android:text="Privacy Policy"
+                android:textColor="@color/grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:layout_marginTop="5sp"
+                android:background="@color/dark3" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="5sp"
+                android:drawableEnd="@drawable/arrow_forward"
+                android:drawableTint="@color/grey"
+                android:fontFamily="@font/poppins"
+                android:gravity="start|center"
+                android:text="Terms And Services"
+                android:textColor="@color/grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:layout_marginTop="5sp"
+                android:background="@color/dark3" />
+
+
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Sign Out"
+        android:backgroundTint="@color/dark"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15sp"
+        android:includeFontPadding="false"
+        android:textColor="@color/red"
+        android:textSize="16sp" />
+
+</RelativeLayout>

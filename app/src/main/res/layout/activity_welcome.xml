@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark"
+    tools:context=".activities.WelcomeActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/background" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:backgroundTint="#951C2126"
+        android:background="@color/dark"/>
+
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25sp"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins"
+            android:textAllCaps="true"
+            android:text="Fitness Pal - Workout Planner"
+            android:textColor="@color/grey" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:layout_marginEnd="15sp"
+            android:layout_marginStart="15sp"
+            android:gravity="center"
+            android:textSize="26sp"
+            android:fontFamily="@font/archivo"
+            android:textAllCaps="true"
+            android:text="volume up your\nbody goals"
+            android:textColor="@color/grey" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15sp"
+            android:layout_marginEnd="15sp"
+            app:cardCornerRadius="12sp"
+            app:cardElevation="0sp"
+            app:strokeWidth="0sp"
+            app:cardBackgroundColor="@color/yellow">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:padding="15sp"
+                android:fontFamily="@font/archivo"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:includeFontPadding="false"
+                android:text="Start Building your body"
+                android:textColor="@color/dark" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="25dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins"
+                android:textAllCaps="true"
+                android:includeFontPadding="false"
+                android:text="Dont have any account?"
+                android:textColor="@color/grey" />
+
+            <Button
+                android:id="@+id/signup"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:text="@string/register"
+                android:textAllCaps="true"
+                android:textColor="@color/grey"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
