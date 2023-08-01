@@ -16,6 +16,21 @@
         android:theme="@style/Theme.MyFitnessPal"
         tools:targetApi="31">
         <activity
+            android:name=".activities.SubCatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.TrainingExerciseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HealthDietActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WeightActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.TrainingActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.EditProfileActivity"
             android:exported="false" />
         <activity

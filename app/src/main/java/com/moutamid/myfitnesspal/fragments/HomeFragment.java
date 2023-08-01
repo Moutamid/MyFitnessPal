@@ -1,5 +1,6 @@
 package com.moutamid.myfitnesspal.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,9 @@ import android.view.ViewGroup;
 
 import com.fxn.stash.Stash;
 import com.moutamid.myfitnesspal.R;
+import com.moutamid.myfitnesspal.activities.HealthDietActivity;
+import com.moutamid.myfitnesspal.activities.TrainingActivity;
+import com.moutamid.myfitnesspal.activities.WeightActivity;
 import com.moutamid.myfitnesspal.databinding.FragmentHomeBinding;
 import com.moutamid.myfitnesspal.utili.Constants;
 
@@ -17,6 +21,7 @@ import java.util.Calendar;
 
 public class HomeFragment extends Fragment {
     FragmentHomeBinding binding;
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -28,6 +33,18 @@ public class HomeFragment extends Fragment {
 
         greetingMessage();
 
+        binding.training.setOnClickListener(v -> {
+            startActivity(new Intent(requireContext(), TrainingActivity.class));
+        });
+
+        binding.healthyDiet.setOnClickListener(v -> {
+            startActivity(new Intent(requireContext(), HealthDietActivity.class));
+        });
+
+        binding.weight.setOnClickListener(v -> {
+            startActivity(new Intent(requireContext(), WeightActivity.class));
+        });
+
         return binding.getRoot();
     }
 
@@ -35,13 +52,13 @@ public class HomeFragment extends Fragment {
         Calendar c = Calendar.getInstance();
         int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
 
-        if(timeOfDay >= 0 && timeOfDay < 12){
+        if (timeOfDay >= 0 && timeOfDay < 12) {
             binding.greeting.setText("Good Morning, " + getUsername());
-        }else if(timeOfDay >= 12 && timeOfDay < 16){
+        } else if (timeOfDay >= 12 && timeOfDay < 16) {
             binding.greeting.setText("Good Afternoon, " + getUsername());
-        }else if(timeOfDay >= 16 && timeOfDay < 21){
+        } else if (timeOfDay >= 16 && timeOfDay < 21) {
             binding.greeting.setText("Good Evening, " + getUsername());
-        }else if(timeOfDay >= 21 && timeOfDay < 24){
+        } else if (timeOfDay >= 21 && timeOfDay < 24) {
             binding.greeting.setText("Good Night, " + getUsername());
         }
     }
@@ -52,9 +69,10 @@ public class HomeFragment extends Fragment {
 
         try {
             if (words.length >= 1) {
-                name= words[0];
+                name = words[0];
             }
-        } catch (Exception e){}
+        } catch (Exception e) {
+        }
 
         return name;
     }

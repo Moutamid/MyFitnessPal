@@ -1,0 +1,1121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark"
+    tools:context=".activities.TrainingActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:cardBackgroundColor="@color/dark"
+        app:cardCornerRadius="0sp"
+        app:cardElevation="8sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12sp"
+                android:src="@drawable/arrow_back"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12sp"
+                android:fontFamily="@font/archivo"
+                android:gravity="start|center"
+                android:text="Training"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12sp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:fontFamily="@font/poppins"
+                android:text="Beginner Training"
+                android:textColor="@color/yellow"
+                android:textSize="14sp" />
+
+<!--            Beginner Training -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/absBeginner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="10sp"
+                    app:strokeWidth="0sp"
+                    app:cardBackgroundColor="@color/dark3"
+                    app:cardElevation="0sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Abs Beginner"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/archivo"
+                            android:text="Core Strength Starter"
+                            android:textAllCaps="true"
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/grey_dark"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/grey_dark"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/chestBeginner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="10sp"
+                    app:strokeWidth="0sp"
+                    app:cardBackgroundColor="@color/dark3"
+                    app:cardElevation="0sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Chest Beginner"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/archivo"
+                            android:text="Beginner Chest Workouts"
+                            android:textAllCaps="true"
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/grey_dark"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/grey_dark"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/armBeginner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="10sp"
+                    app:strokeWidth="0sp"
+                    app:cardBackgroundColor="@color/dark3"
+                    app:cardElevation="0sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Arm Beginner"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/archivo"
+                            android:text="Arm Strength Primer"
+                            android:textAllCaps="true"
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/grey_dark"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/grey_dark"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/legBeginner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="10sp"
+                    app:strokeWidth="0sp"
+                    app:cardBackgroundColor="@color/dark3"
+                    app:cardElevation="0sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Leg Beginner"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/archivo"
+                            android:text="Leg Power Launch"
+                            android:textAllCaps="true"
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/grey_dark"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/grey_dark"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/shoulderBeginner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="10sp"
+                    app:strokeWidth="0sp"
+                    app:cardBackgroundColor="@color/dark3"
+                    app:cardElevation="0sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Shoulder Beginner"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/archivo"
+                            android:text="Shoulder Sculpting Plan"
+                            android:textAllCaps="true"
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/grey_dark"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/grey_dark"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:fontFamily="@font/poppins"
+                android:text="Intermediate Training"
+                android:textColor="@color/yellow"
+                android:textSize="14sp" />
+
+            <!--            Intermediate Training -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/absIntermediate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="10sp"
+                    app:strokeWidth="0sp"
+                    app:cardBackgroundColor="@color/dark3"
+                    app:cardElevation="0sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Abs Intermediate"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/archivo"
+                            android:text="Intermediate Ab Shredder"
+                            android:textAllCaps="true"
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/grey_dark"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/chestIntermediate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="10sp"
+                    app:strokeWidth="0sp"
+                    app:cardBackgroundColor="@color/dark3"
+                    app:cardElevation="0sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Chest Intermediate"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/archivo"
+                            android:text="Next-Level Chest Chiseling"
+                            android:textAllCaps="true"
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/grey_dark"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/armIntermediate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="10sp"
+                    app:strokeWidth="0sp"
+                    app:cardBackgroundColor="@color/dark3"
+                    app:cardElevation="0sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Arm Intermediate"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/archivo"
+                            android:text="Arm Fortifiers"
+                            android:textAllCaps="true"
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/grey_dark"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/legIntermediate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="10sp"
+                    app:strokeWidth="0sp"
+                    app:cardBackgroundColor="@color/dark3"
+                    app:cardElevation="0sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Leg Intermediate"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/archivo"
+                            android:text="Intermediate Leg Builders"
+                            android:textAllCaps="true"
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/grey_dark"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/shoulderIntermediate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="10sp"
+                    app:strokeWidth="0sp"
+                    app:cardBackgroundColor="@color/dark3"
+                    app:cardElevation="0sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Shoulder Intermediate"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/archivo"
+                            android:text="Intermediate Shoulder Enhancers"
+                            android:textAllCaps="true"
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/grey_dark"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:fontFamily="@font/poppins"
+                android:text="Advance Training"
+                android:textColor="@color/yellow"
+                android:textSize="14sp" />
+
+            <!--            Advance Training -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/absAdvance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="10sp"
+                    app:strokeWidth="0sp"
+                    app:cardBackgroundColor="@color/dark3"
+                    app:cardElevation="0sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Abs Advance"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/archivo"
+                            android:text="Advanced Ab Ripper"
+                            android:textAllCaps="true"
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/chestAdvance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="10sp"
+                    app:strokeWidth="0sp"
+                    app:cardBackgroundColor="@color/dark3"
+                    app:cardElevation="0sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Chest Advance"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/archivo"
+                            android:text="Advanced Chest Titans"
+                            android:textAllCaps="true"
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/armAdvance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="10sp"
+                    app:strokeWidth="0sp"
+                    app:cardBackgroundColor="@color/dark3"
+                    app:cardElevation="0sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Arm Advance"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/archivo"
+                            android:text="Arm Mastery"
+                            android:textAllCaps="true"
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/legAdvance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="10sp"
+                    app:strokeWidth="0sp"
+                    app:cardBackgroundColor="@color/dark3"
+                    app:cardElevation="0sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Leg Advance"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/archivo"
+                            android:text="Leg Arsenal"
+                            android:textAllCaps="true"
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/shoulderAdvance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="10sp"
+                    app:strokeWidth="0sp"
+                    app:cardBackgroundColor="@color/dark3"
+                    app:cardElevation="0sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Shoulder Advance"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/archivo"
+                            android:text="Elite Shoulder Regimen"
+                            android:textAllCaps="true"
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+                            <ImageView
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
+                                app:tint="@color/yellow"
+                                android:rotation="30"
+                                android:src="@drawable/bolt_solid" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

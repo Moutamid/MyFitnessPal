@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="27sp"
+    app:strokeWidth="0sp"
+    app:cardElevation="0sp"
+    android:layout_margin="8sp"
+    app:cardBackgroundColor="@color/light_yelow">
+
+    <TextView
+        android:id="@+id/focusArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:fontFamily="@font/poppins"
+        android:includeFontPadding="false"
+        android:text="Focus Area"
+        android:textColor="@color/yellow"
+        android:textSize="16sp" />
+
+</com.google.android.material.card.MaterialCardView>

@@ -31,6 +31,20 @@ public class Constants {
     static Dialog dialog;
     public static final String DATEFORMATE = "dd/MM/yyyy";
     public static final String Users = "users";
+    public static final String Beginner = "Beginner";
+    public static final String Advance = "Advance";
+    public static final String Intermediate = "Intermediate";
+    public static final String Level = "Level";
+    public static final String TRAINING_TYPE = "TRAINING_TYPE";
+    public static final String ABS = "ABS";
+    public static final String CHEST = "CHEST";
+    public static final String ARM = "ARM";
+    public static final String LEG = "LEG";
+    public static final String SHOULDER = "SHOULDER";
+    public static final String FOOD = "FOOD";
+    public static final String BREAKFAST = "Breakfast";
+    public static final String DESSERT = "Dessert";
+    public static final String ENTREES = "Entrees";
 
     public static String getFormatedDate(long date){
         return new SimpleDateFormat(DATEFORMATE, Locale.getDefault()).format(date);

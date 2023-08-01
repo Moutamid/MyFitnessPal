@@ -17,11 +17,14 @@ import com.moutamid.myfitnesspal.utili.Constants;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class EditProfileActivity extends AppCompatActivity {
     ActivityEditProfileBinding binding;
     final Calendar calendar = Calendar.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +49,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         Constants.databaseReference().child(Constants.Users).child(Constants.auth().getCurrentUser().getUid())
                 .get().addOnSuccessListener(snapshot -> {
-                    if (snapshot.exists()){
+                    if (snapshot.exists()) {
                         UserModel userModel = snapshot.getValue(UserModel.class);
                         Stash.put(Constants.Users, userModel.getName());
                         Constants.dismissDialog();
@@ -68,7 +71,8 @@ public class EditProfileActivity extends AppCompatActivity {
                 });
 
         binding.update.setOnClickListener(v -> {
-            if (valid()){
+            if (valid()) {
+                Constants.showDialog();
                 updateProfile();
             }
         });
@@ -77,7 +81,7 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     private boolean valid() {
-        if (binding.name.getEditText().getText().toString().isEmpty()){
+        if (binding.name.getEditText().getText().toString().isEmpty()) {
             binding.name.setError("Name should not be empty");
             binding.name.requestFocus();
             return false;
@@ -86,17 +90,17 @@ public class EditProfileActivity extends AppCompatActivity {
             Toast.makeText(this, "Gender is not selected", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (binding.age.getEditText().getText().toString().isEmpty()){
+        if (binding.age.getEditText().getText().toString().isEmpty()) {
             binding.age.setError("Age should not be empty");
             binding.age.requestFocus();
             return false;
         }
-        if (binding.height.getEditText().getText().toString().isEmpty()){
+        if (binding.height.getEditText().getText().toString().isEmpty()) {
             binding.height.setError("Height should not be empty");
             binding.height.requestFocus();
             return false;
         }
-        if (binding.weight.getEditText().getText().toString().isEmpty()){
+        if (binding.weight.getEditText().getText().toString().isEmpty()) {
             binding.weight.setError("Weight should not be empty");
             binding.weight.requestFocus();
             return false;
@@ -110,6 +114,24 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     private void updateProfile() {
+        String gender = binding.male.isChecked() ? "Male" : "Female";
 
+        Map<String, Object> user = new HashMap<>();
+        user.put("name", binding.name.getEditText().getText().toString());
+        user.put("gender", gender);
+        user.put("height", binding.height.getEditText().getText().toString());
+        user.put("weight", binding.weight.getEditText().getText().toString());
+        user.put("age", binding.age.getEditText().getText().toString());
+
+        Constants.databaseReference().child(Constants.Users).child(Constants.auth().getCurrentUser().getUid())
+                .updateChildren(user).addOnSuccessListener(unused -> {
+                    Stash.put(Constants.Users, user.get("name").toString());
+                    Constants.dismissDialog();
+                    Toast.makeText(this, "Profile Updated", Toast.LENGTH_SHORT).show();
+                    finish();
+                }).addOnFailureListener(e -> {
+                    Toast.makeText(EditProfileActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Constants.dismissDialog();
+                });
     }
 }

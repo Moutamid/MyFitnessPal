@@ -4,4 +4,5 @@
     <string name="login"><u>Login</u></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lorem15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus autem consectetur debitis, dolorum error excepturi incidunt ipsum laborum perferendis quaerat quod repudiandae, sapiente, voluptates? Reprehenderit.</string>
 </resources>
