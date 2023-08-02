@@ -1,8 +1,10 @@
 package com.moutamid.myfitnesspal.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import com.fxn.stash.Stash;
@@ -17,6 +19,7 @@ public class TrainingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityTrainingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Constants.changeTheme(this);
 
         initClickListners();
 
@@ -24,6 +27,7 @@ public class TrainingActivity extends AppCompatActivity {
 
 
     }
+
 
     private void initClickListners() {
 

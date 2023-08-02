@@ -1,8 +1,10 @@
 package com.moutamid.myfitnesspal.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import com.fxn.stash.Stash;
@@ -21,6 +23,7 @@ public class SubCatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySubCatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Constants.changeTheme(this);
 
         binding.back.setOnClickListener(v -> onBackPressed());
 

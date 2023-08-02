@@ -6,7 +6,7 @@
     app:cardCornerRadius="8sp"
     app:cardElevation="0sp"
     app:strokeWidth="0sp"
-    app:cardBackgroundColor="@color/dark2">
+    app:cardBackgroundColor="@color/radio_uncheck">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             android:gravity="center_vertical"
             android:text="Please Wait..."
             android:layout_marginStart="12sp"
-            android:textColor="@color/white"
+            android:textColor="@color/grey"
             android:fontFamily="@font/poppins" />
 
     </LinearLayout>

@@ -2,12 +2,16 @@ package com.moutamid.myfitnesspal;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.res.ColorStateList;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.fxn.stash.Stash;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.shape.ShapeAppearanceModel;
 import com.moutamid.myfitnesspal.databinding.ActivityMainBinding;
 import com.moutamid.myfitnesspal.fragments.CompFragment;
 import com.moutamid.myfitnesspal.fragments.HomeFragment;
@@ -23,8 +27,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(binding.getRoot());
         Constants.checkApp(this);
 
-        binding.bottomNav.setItemActiveIndicatorColor(ColorStateList.valueOf(getResources().getColor(R.color.yellow)));
+        Constants.changeTheme(this);
 
+        binding.bottomNav.setItemActiveIndicatorColor(ColorStateList.valueOf(getResources().getColor(R.color.bottomNavIndicator)));
+        binding.bottomNav.setItemActiveIndicatorWidth(100);
+        binding.bottomNav.setItemActiveIndicatorHeight(100);
+//        binding.bottomNav.setItemActiveIndicatorShapeAppearance(new ShapeAppearanceModel().withCornerSize(50f).toBuilder().build());
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
         binding.bottomNav.setSelectedItemId(R.id.nav_home);
 

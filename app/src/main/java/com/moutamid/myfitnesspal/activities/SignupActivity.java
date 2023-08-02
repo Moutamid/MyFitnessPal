@@ -2,9 +2,11 @@ package com.moutamid.myfitnesspal.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Toast;
@@ -29,6 +31,7 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySignupBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Constants.changeTheme(this);
 
         Constants.initDialog(this);
 
@@ -49,6 +52,11 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
+        binding.login.setOnClickListener(v -> {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        });
+
 
     }
 
@@ -66,7 +74,7 @@ public class SignupActivity extends AppCompatActivity {
                     binding.male.isChecked() ? "Male" : "Female",
                     binding.height.getEditText().getText().toString(),
                     binding.weight.getEditText().getText().toString(),
-                    binding.age.getEditText().getText().toString()
+                    binding.age.getEditText().getText().toString(), false
             );
 
             Constants.databaseReference().child(Constants.Users).child(Constants.auth().getCurrentUser().getUid())

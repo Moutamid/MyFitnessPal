@@ -16,7 +16,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:backgroundTint="#951C2126"
+        android:backgroundTint="@color/image_overlay"
         android:background="@color/dark"/>
 
     <LinearLayout

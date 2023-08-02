@@ -17,7 +17,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:backgroundTint="#951C2126"
+        android:backgroundTint="@color/image_overlay"
         android:background="@color/dark"/>
 
     <LinearLayout
@@ -27,7 +27,6 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="25dp"
         android:orientation="vertical">
-
 
         <TextView
             android:layout_width="match_parent"
@@ -136,6 +135,7 @@
             android:layout_marginBottom="10sp"
             android:drawableEnd="@drawable/round_arrow_right"
             android:includeFontPadding="false"
+            android:drawableTint="@color/dark"
             android:textColor="@color/dark"
             android:textSize="16sp" />
 

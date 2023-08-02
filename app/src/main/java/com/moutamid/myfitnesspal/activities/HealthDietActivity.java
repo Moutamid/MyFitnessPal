@@ -1,8 +1,10 @@
 package com.moutamid.myfitnesspal.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import com.fxn.stash.Stash;
@@ -17,6 +19,9 @@ public class HealthDietActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHealthDietBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        Constants.changeTheme(this);
 
         binding.breakfast.setOnClickListener(v -> {
             Stash.put(Constants.FOOD, Constants.BREAKFAST);
@@ -34,4 +39,5 @@ public class HealthDietActivity extends AppCompatActivity {
         binding.back.setOnClickListener(v -> onBackPressed());
 
     }
+
 }

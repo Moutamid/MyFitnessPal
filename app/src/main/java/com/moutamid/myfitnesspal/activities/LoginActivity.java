@@ -2,8 +2,10 @@ package com.moutamid.myfitnesspal.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -28,6 +30,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        Constants.changeTheme(this);
 
         Constants.initDialog(this);
 
@@ -101,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                                 if (snapshot.exists()){
                                     UserModel userModel = snapshot.getValue(UserModel.class);
                                     Stash.put(Constants.Users, userModel.getName());
+                                    Stash.put(Constants.isRankedAvailable, userModel.isRankedAvailable());
                                     Constants.dismissDialog();
                                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                     finish();

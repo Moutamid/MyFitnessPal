@@ -1,9 +1,11 @@
 package com.moutamid.myfitnesspal.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Toast;
@@ -30,6 +32,8 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityEditProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        Constants.changeTheme(this);
 
         Constants.initDialog(this);
         Constants.showDialog();
@@ -134,4 +138,5 @@ public class EditProfileActivity extends AppCompatActivity {
                     Constants.dismissDialog();
                 });
     }
+
 }

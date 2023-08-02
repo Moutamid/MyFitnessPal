@@ -1,19 +1,24 @@
 package com.moutamid.myfitnesspal.utili;
 
+import com.fxn.stash.Stash;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.moutamid.myfitnesspal.R;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.view.Window;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,6 +50,12 @@ public class Constants {
     public static final String BREAKFAST = "Breakfast";
     public static final String DESSERT = "Dessert";
     public static final String ENTREES = "Entrees";
+    public static final String THEME = "theme";
+    public static final String DARK = "DARK";
+    public static final String LIGHT = "LIGHT";
+    public static final String SYSTEM = "SYSTEM";
+    public static final String Proofs = "proofs";
+    public static final String isRankedAvailable = "isRankedAvailable";
 
     public static String getFormatedDate(long date){
         return new SimpleDateFormat(DATEFORMATE, Locale.getDefault()).format(date);
@@ -58,6 +69,21 @@ public class Constants {
         dialog.setCancelable(false);
     }
 
+    public static void changeTheme(Context context){
+        if (Stash.getString(Constants.THEME, Constants.LIGHT).equals(Constants.DARK)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else if (Stash.getString(Constants.THEME, Constants.LIGHT).equals(Constants.LIGHT)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        } else if (Stash.getString(Constants.THEME, Constants.LIGHT).equals(Constants.SYSTEM)) {
+            int nightModeFlags = context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+            boolean isDarkMode = nightModeFlags == Configuration.UI_MODE_NIGHT_YES;
+            if (isDarkMode) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+        }
+    }
     public static void showDialog(){
         dialog.show();
     }
@@ -135,5 +161,9 @@ public class Constants {
         return db;
     }
 
+    public static StorageReference storageReference(String auth) {
+        StorageReference sr = FirebaseStorage.getInstance().getReference().child("myfitnesspal").child(auth);
+        return sr;
+    }
 
 }

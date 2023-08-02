@@ -2,7 +2,7 @@ package com.moutamid.myfitnesspal.models;
 
 public class UserModel {
     String id, name, email, password, gender, height, weight, age;
-
+    boolean isRankedAvailable;
     public UserModel() {
     }
 
@@ -17,6 +17,25 @@ public class UserModel {
         this.age = age;
     }
 
+    public UserModel(String id, String name, String email, String password, String gender, String height, String weight, String age, boolean isRankedAvailable) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.gender = gender;
+        this.height = height;
+        this.weight = weight;
+        this.age = age;
+        this.isRankedAvailable = isRankedAvailable;
+    }
+
+    public boolean isRankedAvailable() {
+        return isRankedAvailable;
+    }
+
+    public void setRankedAvailable(boolean rankedAvailable) {
+        isRankedAvailable = rankedAvailable;
+    }
 
     public String getId() {
         return id;

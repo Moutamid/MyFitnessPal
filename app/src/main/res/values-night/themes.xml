@@ -1,10 +1,32 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.MyFitnessPal" parent="Theme.Material3.Light.NoActionBar">
+    <style name="Base.Theme.MyFitnessPal" parent="Theme.Material3.Dark.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/yellow</item>
+        <item name="colorPrimaryVariant">@color/yellow</item>
+        <item name="colorOnPrimary">@color/dark</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/yellow</item>
+        <item name="colorSecondaryVariant">@color/yellow</item>
+        <item name="colorOnSecondary">@color/dark</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/dark</item>
+        <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowDisablePreview">true</item>
         <item name="materialAlertDialogTheme">@style/AlertDialogStyle</item>
+    </style>
+
+    <style name="PopupMenu" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@color/popup</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="colorPrimary">@color/dark</item>
+        <item name="colorPrimaryDark">@color/dark</item>
+        <item name="colorAccent">@color/dark</item>
+        <item name="android:statusBarColor">@color/dark</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="AlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
