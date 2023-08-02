@@ -77,7 +77,7 @@ public class SubCatActivity extends AppCompatActivity {
         ArrayList<FoodItemModel> list = new ArrayList<>();
         list.add(new FoodItemModel("Sandwiches & Crunch Wraps", "Breakfast Bacon, Egg & Cheddar Crunch Wrap"));
         list.add(new FoodItemModel("Sandwiches & Crunch Wraps", "Egg White Delight Crunch Wrap"));
-        list.add(new FoodItemModel("Donuts", "Oreo Cheescake Protein Donuts"));
+        list.add(new FoodItemModel("Donuts", "Oreo Cheesecake Protein Donuts"));
         list.add(new FoodItemModel("Donuts", "Giant Homer Simson Donut"));
         list.add(new FoodItemModel("Waffles, Pancakes & French Toast", "Marshmallow Fruity Pebbles Protein Waffle Tower"));
         list.add(new FoodItemModel("Waffles, Pancakes & French Toast", "Reese’s Oreo Protein Waffle Tower"));
