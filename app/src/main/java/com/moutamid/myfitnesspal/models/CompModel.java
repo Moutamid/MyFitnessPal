@@ -3,17 +3,36 @@ package com.moutamid.myfitnesspal.models;
 public class CompModel {
     String id;
     double squart, deadLift, bench;
+    String name;
     String videoUrl;
+    int rank;
 
     public CompModel() {
     }
 
-    public CompModel(String id, double squart, double deadLift, double bench, String videoUrl) {
+    public CompModel(String id, double squart, double deadLift, double bench, String name, String videoUrl) {
         this.id = id;
         this.squart = squart;
         this.deadLift = deadLift;
         this.bench = bench;
+        this.name = name;
         this.videoUrl = videoUrl;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
     }
 
     public String getId() {
@@ -55,4 +74,9 @@ public class CompModel {
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
     }
+
+    public int getTotalPoints() {
+        return (int) (Math.floor(squart) + Math.floor(deadLift) + Math.floor(bench));
+    }
+
 }

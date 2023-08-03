@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ranked"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10sp"
+    app:cardBackgroundColor="@color/dark3"
+    app:cardCornerRadius="10sp"
+    app:cardElevation="0sp"
+    app:strokeWidth="0sp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12sp">
+
+        <TextView
+            android:id="@+id/rankPosition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Rank # 25 "
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textColor="@color/yellow"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="10sp"
+            android:drawableStart="@drawable/ranking_star_solid"
+            android:drawableTint="@color/yellow"
+            android:fontFamily="@font/archivo"
+            android:gravity="center"
+            android:text="Suleman"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

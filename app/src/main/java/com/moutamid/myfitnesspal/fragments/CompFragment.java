@@ -9,11 +9,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.fxn.stash.Stash;
 import com.moutamid.myfitnesspal.MainActivity;
 import com.moutamid.myfitnesspal.R;
 import com.moutamid.myfitnesspal.activities.LoginActivity;
+import com.moutamid.myfitnesspal.activities.PerformanceActivity;
 import com.moutamid.myfitnesspal.activities.RankedActivity;
 import com.moutamid.myfitnesspal.activities.SubCatActivity;
 import com.moutamid.myfitnesspal.activities.SubmitProofActivity;
@@ -42,8 +44,8 @@ public class CompFragment extends Fragment {
                         UserModel userModel = snapshot.getValue(UserModel.class);
                         Stash.put(Constants.Users, userModel.getName());
                         Stash.put(Constants.isRankedAvailable, userModel.isRankedAvailable());
-                        Constants.dismissDialog();
                     }
+                    Constants.dismissDialog();
                 }).addOnFailureListener(e -> {
                     Constants.dismissDialog();
                 });
@@ -58,7 +60,7 @@ public class CompFragment extends Fragment {
             }
         });
         binding.performance.setOnClickListener(v -> {
-//            startActivity(new Intent(requireContext(), SubCatActivity.class));
+            startActivity(new Intent(requireContext(), PerformanceActivity.class));
         });
         binding.proof.setOnClickListener(v -> {
             startActivity(new Intent(requireContext(), SubmitProofActivity.class));

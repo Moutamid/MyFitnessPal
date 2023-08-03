@@ -18,6 +18,9 @@
         android:theme="@style/Theme.MyFitnessPal"
         tools:targetApi="31">
         <activity
+            android:name=".activities.PerformanceActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.RankedActivity"
             android:exported="false" />
         <activity

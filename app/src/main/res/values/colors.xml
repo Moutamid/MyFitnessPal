@@ -20,6 +20,7 @@
     <color name="bottomNavText">#1C2126</color>
     <color name="bottomNavIndicator">#E9E9E9</color>
     <color name="image_overlay">#95BCBEBF</color>
+    <color name="gold">#FFD43B</color>
 
 
 </resources>

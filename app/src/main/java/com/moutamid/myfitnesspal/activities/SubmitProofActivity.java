@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.fxn.stash.Stash;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.moutamid.myfitnesspal.R;
@@ -93,7 +94,7 @@ public class SubmitProofActivity extends AppCompatActivity {
                 double squat = Double.parseDouble(binding.squat.getEditText().getText().toString());
                 double deadLift = Double.parseDouble(binding.deadlift.getEditText().getText().toString());
                 double bench = Double.parseDouble(binding.bench.getEditText().getText().toString());
-                CompModel model = new CompModel(Constants.auth().getCurrentUser().getUid(), squat, deadLift, bench, videoUrl);
+                CompModel model = new CompModel(Constants.auth().getCurrentUser().getUid(), squat, deadLift, bench, Stash.getString(Constants.Users), videoUrl);
                 Constants.databaseReference().child(Constants.Proofs).child(Constants.auth().getCurrentUser().getUid())
                         .setValue(model).addOnSuccessListener(unused -> {
                             Constants.dismissDialog();
