@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -55,6 +56,17 @@ public class TrainingExerciseActivity extends AppCompatActivity {
             initAdvanceViews();
         }
 
+        binding.start.setOnClickListener(v -> {
+            Stash.put(Constants.START_LIST, trainingList);
+            if (level.equals(Constants.Beginner)){
+                startActivity(new Intent(this, StartBeginnerActivity.class));
+            } else if (level.equals(Constants.Intermediate)) {
+                startActivity(new Intent(this, StartIntermediateActivity.class));
+            } else if (level.equals(Constants.Advance)) {
+                startActivity(new Intent(this, StartAdvanceActivity.class));
+            }
+        });
+
         ItemTouchHelper.Callback ithCallback = new ItemTouchHelper.Callback() {
             @Override
             public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
@@ -78,6 +90,7 @@ public class TrainingExerciseActivity extends AppCompatActivity {
         };
         ItemTouchHelper ith = new ItemTouchHelper(ithCallback);
         ith.attachToRecyclerView(binding.workoutRC);
+
 
     }
 
