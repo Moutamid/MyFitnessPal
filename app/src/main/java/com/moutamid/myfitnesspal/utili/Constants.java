@@ -55,6 +55,7 @@ public class Constants {
     public static final String LIGHT = "LIGHT";
     public static final String SYSTEM = "SYSTEM";
     public static final String Proofs = "proofs";
+    public static final String Approved = "approved";
     public static final String isRankedAvailable = "isRankedAvailable";
 
     public static String getFormatedDate(long date){

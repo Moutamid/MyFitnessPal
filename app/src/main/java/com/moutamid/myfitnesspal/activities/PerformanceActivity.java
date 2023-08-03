@@ -29,7 +29,7 @@ public class PerformanceActivity extends AppCompatActivity {
         binding.back.setOnClickListener(v -> onBackPressed());
 
 
-        Constants.databaseReference().child(Constants.Proofs).child(Constants.auth().getCurrentUser().getUid())
+        Constants.databaseReference().child(Constants.Approved).child(Constants.auth().getCurrentUser().getUid())
                 .get().addOnSuccessListener(snapshot -> {
                     if (snapshot.exists()){
                         CompModel model = snapshot.getValue(CompModel.class);

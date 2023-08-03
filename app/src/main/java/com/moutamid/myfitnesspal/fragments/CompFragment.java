@@ -54,13 +54,19 @@ public class CompFragment extends Fragment {
             if (Stash.getBoolean(Constants.isRankedAvailable, false)) {
                 startActivity(new Intent(requireContext(), RankedActivity.class));
             } else {
-                new AlertDialog.Builder(requireContext()).setMessage("You don't have any ranked yet send us a video of proof to be in the rank")
+                new AlertDialog.Builder(requireContext()).setMessage("You are not qualified for ranked yet send us a video of proof to be in the rank")
                         .setPositiveButton("Ok", ((dialog, which) -> dialog.dismiss()))
                         .show();
             }
         });
         binding.performance.setOnClickListener(v -> {
-            startActivity(new Intent(requireContext(), PerformanceActivity.class));
+            if (Stash.getBoolean(Constants.isRankedAvailable, false)) {
+                startActivity(new Intent(requireContext(), PerformanceActivity.class));
+            } else {
+                new AlertDialog.Builder(requireContext()).setMessage("You are not qualified for ranked yet send us a video of proof to be in the rank")
+                        .setPositiveButton("Ok", ((dialog, which) -> dialog.dismiss()))
+                        .show();
+            }
         });
         binding.proof.setOnClickListener(v -> {
             startActivity(new Intent(requireContext(), SubmitProofActivity.class));

@@ -36,7 +36,7 @@ public class RankedActivity extends AppCompatActivity {
 
         list = new ArrayList<>();
 
-        Constants.databaseReference().child(Constants.Proofs)
+        Constants.databaseReference().child(Constants.Approved)
                 .get().addOnSuccessListener(snapshot -> {
                     if (snapshot.exists()){
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()){

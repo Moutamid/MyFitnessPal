@@ -93,6 +93,8 @@
                             android:text="Squat"
                             android:layout_weight="1"
                             android:textAllCaps="true"
+                            android:gravity="center_vertical"
+                            android:includeFontPadding="false"
                             android:textStyle="bold"
                             android:textColor="@color/white"
                             android:textSize="14sp" />
@@ -131,6 +133,8 @@
                             android:layout_weight="1"
                             android:textAllCaps="true"
                             android:textStyle="bold"
+                            android:gravity="center_vertical"
+                            android:includeFontPadding="false"
                             android:textColor="@color/white"
                             android:textSize="14sp" />
 
@@ -169,6 +173,8 @@
                             android:textAllCaps="true"
                             android:textStyle="bold"
                             android:textColor="@color/white"
+                            android:gravity="center_vertical"
+                            android:includeFontPadding="false"
                             android:textSize="14sp" />
 
                         <TextView
