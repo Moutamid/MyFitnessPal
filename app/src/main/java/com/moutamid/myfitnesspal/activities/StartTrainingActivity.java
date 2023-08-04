@@ -6,7 +6,8 @@ import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
+import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,47 +20,25 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.fxn.stash.Stash;
 import com.moutamid.myfitnesspal.R;
-import com.moutamid.myfitnesspal.databinding.ActivityStartBeginnerBinding;
+import com.moutamid.myfitnesspal.databinding.ActivityStartTrainingBinding;
 import com.moutamid.myfitnesspal.models.TrainingModel;
 import com.moutamid.myfitnesspal.utili.Constants;
 
 import java.util.ArrayList;
 
-public class StartBeginnerActivity extends AppCompatActivity {
-    ActivityStartBeginnerBinding binding;
+public class StartTrainingActivity extends AppCompatActivity {
+    ActivityStartTrainingBinding binding;
     String level, type;
     ArrayList<TrainingModel> trainingList;
-    boolean isTimerRunning = false;
+    boolean isTimerRunning = false, run = true;
     int counter = 0;
-    private long startTime = 0L;
-    private long pausedTime = 0L;
-    private Handler handler = new Handler();
     int inputSeconds;
-
-    private Runnable timerRunnable = new Runnable() {
-        @Override
-        public void run() {
-            long millis = System.currentTimeMillis() - startTime;
-            int secondsRemaining = (int) (inputSeconds  - millis / 1000);
-
-            if (secondsRemaining >= 0) {
-                int minutes = secondsRemaining / 60;
-                int seconds = secondsRemaining % 60;
-                String time = String.format("%02d:%02d", minutes, seconds);
-                binding.trainingDuration.setText(time);
-                handler.postDelayed(this, 1000);
-            } else {
-                binding.trainingDuration.setText("00:00");
-                handler.removeCallbacks(timerRunnable);
-                showRestDialog();
-            }
-        }
-    };
+    CountDownTimer countDownTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityStartBeginnerBinding.inflate(getLayoutInflater());
+        binding = ActivityStartTrainingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Constants.changeTheme(this);
 
@@ -77,11 +56,13 @@ public class StartBeginnerActivity extends AppCompatActivity {
 
         binding.start.setOnClickListener(v -> {
             TrainingModel model = trainingList.get(counter);
-
             if (model.isDuration()) {
                 if (isTimerRunning){
                     pauseTimer(model);
                 } else {
+                    if (run) {
+                        inputSeconds = model.getTime();
+                    }
                     startTimer(model);
                 }
             } else {
@@ -94,10 +75,9 @@ public class StartBeginnerActivity extends AppCompatActivity {
 
     private void pauseTimer(TrainingModel model) {
         if (isTimerRunning) {
-            handler.removeCallbacks(timerRunnable);
-            pausedTime = System.currentTimeMillis() - startTime;
             isTimerRunning = false;
             binding.start.setText("Start");
+            countDownTimer.cancel();
         }
     }
 
@@ -109,6 +89,9 @@ public class StartBeginnerActivity extends AppCompatActivity {
 
         int count = this.counter;
 
+        Log.d("CHECKINH" , "this Counter " + this.counter);
+        Log.d("CHECKINH" , "count " + count);
+
         TextView counter = dialog.findViewById(R.id.counter);
         TextView position = dialog.findViewById(R.id.position);
         TextView name = dialog.findViewById(R.id.name);
@@ -116,11 +99,41 @@ public class StartBeginnerActivity extends AppCompatActivity {
         ImageView gif = dialog.findViewById(R.id.gif);
         Button skip = dialog.findViewById(R.id.skip);
 
-        if (trainingList.size()-1 >= count){
+        new CountDownTimer(25 * 1000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                int secondsLeft = (int) (millisUntilFinished / 1000);
+                if (secondsLeft >= 60) {
+                    int s = secondsLeft;
+                    int sec = s % 60;
+                    int min = (s / 60) % 60;
+                    counter.setText(min + ":" + sec);
+                } else if (secondsLeft >= 10) {
+                    counter.setText("00:" + secondsLeft);
+                } else {
+                    counter.setText("00:0" + secondsLeft);
+                }
+            }
+
+            @Override
+            public void onFinish() {
+                dialog.dismiss();
+                StartTrainingActivity.this.counter += 1;
+                initView(StartTrainingActivity.this.counter);
+            }
+        }.start();
+
+        if (trainingList.size()-1 <= count){
             count = trainingList.size() -1 ;
+            Log.d("CHECKINH" , "IF count " + count);
         } else {
+            Log.d("CHECKINH" , "else before count " + count);
             count += 1;
+            Log.d("CHECKINH" , "else after count " + count);
         }
+
+        Log.d("CHECKINH" , "this Counter " + this.counter);
+        Log.d("CHECKINH" , "count " + count);
 
         position.setText("NEXT " + (count+1) + "/" + trainingList.size());
 
@@ -161,10 +174,31 @@ public class StartBeginnerActivity extends AppCompatActivity {
 
     private void startTimer(TrainingModel model) {
         binding.start.setText("Stop");
-        inputSeconds = model.getTime();
-        startTime = System.currentTimeMillis() - model.getTime() * 1000;
         isTimerRunning = true;
-        handler.postDelayed(timerRunnable, 0);
+        countDownTimer = new CountDownTimer((inputSeconds* 1000L), 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                int secondsLeft = (int) (millisUntilFinished / 1000);
+                inputSeconds = secondsLeft;
+                run = false;
+                if (secondsLeft >= 60) {
+                    int s = secondsLeft;
+                    int sec = s % 60;
+                    int min = (s / 60) % 60;
+                    binding.trainingDuration.setText(min + ":" + sec);
+                } else if (secondsLeft >= 10) {
+                    binding.trainingDuration.setText("00:" + secondsLeft);
+                } else {
+                    binding.trainingDuration.setText("00:0" + secondsLeft);
+                }
+            }
+
+            @Override
+            public void onFinish() {
+                run = true;
+                showRestDialog();
+            }
+        }.start();
     }
 
     private void initView(int count) {
@@ -181,25 +215,30 @@ public class StartBeginnerActivity extends AppCompatActivity {
             binding.skip.setVisibility(View.VISIBLE);
         }
 
-        TrainingModel model = trainingList.get(counter);
-        Glide.with(this).load(model.getGif()).into(binding.gif);
-        binding.trainingName.setText(model.getName());
-
-        if (model.isDuration()) {
-            if (model.getTime() >= 60) {
-                int s = model.getTime();
-                int sec = s % 60;
-                int min = (s / 60) % 60;
-                binding.trainingDuration.setText(min + ":" + sec);
-            } else if (model.getTime() >= 10) {
-                binding.trainingDuration.setText("00:" + model.getTime());
-            } else {
-                binding.trainingDuration.setText("00:0" + model.getTime());
-            }
-            binding.start.setText("Start");
+        if(counter >= trainingList.size()){
+            finish();
         } else {
-            binding.trainingDuration.setText("x " + model.getTime());
-            binding.start.setText("Done");
+
+            TrainingModel model = trainingList.get(counter);
+            Glide.with(this).load(model.getGif()).into(binding.gif);
+            binding.trainingName.setText(model.getName());
+
+            if (model.isDuration()) {
+                if (model.getTime() >= 60) {
+                    int s = model.getTime();
+                    int sec = s % 60;
+                    int min = (s / 60) % 60;
+                    binding.trainingDuration.setText(min + ":" + sec);
+                } else if (model.getTime() >= 10) {
+                    binding.trainingDuration.setText("00:" + model.getTime());
+                } else {
+                    binding.trainingDuration.setText("00:0" + model.getTime());
+                }
+                binding.start.setText("Start");
+            } else {
+                binding.trainingDuration.setText("x " + model.getTime());
+                binding.start.setText("Done");
+            }
         }
 
     }

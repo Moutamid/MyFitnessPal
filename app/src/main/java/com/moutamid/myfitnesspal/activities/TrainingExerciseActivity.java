@@ -2,14 +2,11 @@ package com.moutamid.myfitnesspal.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -22,7 +19,6 @@ import com.moutamid.myfitnesspal.utili.Constants;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 public class TrainingExerciseActivity extends AppCompatActivity {
     ActivityTrainingExerciseBinding binding;
@@ -58,13 +54,7 @@ public class TrainingExerciseActivity extends AppCompatActivity {
 
         binding.start.setOnClickListener(v -> {
             Stash.put(Constants.START_LIST, trainingList);
-            if (level.equals(Constants.Beginner)){
-                startActivity(new Intent(this, StartBeginnerActivity.class));
-            } else if (level.equals(Constants.Intermediate)) {
-                startActivity(new Intent(this, StartIntermediateActivity.class));
-            } else if (level.equals(Constants.Advance)) {
-                startActivity(new Intent(this, StartAdvanceActivity.class));
-            }
+            startActivity(new Intent(this, StartTrainingActivity.class));
         });
 
         ItemTouchHelper.Callback ithCallback = new ItemTouchHelper.Callback() {

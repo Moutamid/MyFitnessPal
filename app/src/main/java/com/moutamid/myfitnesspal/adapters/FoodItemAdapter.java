@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moutamid.myfitnesspal.R;
+import com.moutamid.myfitnesspal.listners.FoodItemClickListener;
 import com.moutamid.myfitnesspal.models.FoodItemModel;
 
 import java.util.ArrayList;
@@ -18,6 +19,13 @@ public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.FoodVH
 
     Context context;
     ArrayList<FoodItemModel> list;
+    FoodItemClickListener clickListener;
+
+    public FoodItemAdapter(Context context, ArrayList<FoodItemModel> list, FoodItemClickListener clickListener) {
+        this.context = context;
+        this.list = list;
+        this.clickListener = clickListener;
+    }
 
     public FoodItemAdapter(Context context, ArrayList<FoodItemModel> list) {
         this.context = context;
@@ -36,6 +44,8 @@ public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.FoodVH
 
         holder.cat.setText(model.getCat());
         holder.name.setText(model.getName());
+
+        holder.itemView.setOnClickListener(v -> clickListener.onClick(list.get(holder.getAdapterPosition())));
 
     }
 

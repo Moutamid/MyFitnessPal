@@ -138,7 +138,6 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void updateLabel() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(Constants.DATEFORMATE, Locale.getDefault());
-        binding.age.getEditText().setText(dateFormat.format(calendar.getTime()));
+        binding.age.getEditText().setText(Constants.getFormatedDate(calendar.getTime().getTime()));
     }
 }

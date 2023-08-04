@@ -58,6 +58,7 @@ public class Constants {
     public static final String Approved = "approved";
     public static final String isRankedAvailable = "isRankedAvailable";
     public static final String START_LIST = "START_LIST";
+    public static final String FOOD_DETAIL = "FOOD_DETAIL";
 
     public static String getFormatedDate(long date){
         return new SimpleDateFormat(DATEFORMATE, Locale.getDefault()).format(date);

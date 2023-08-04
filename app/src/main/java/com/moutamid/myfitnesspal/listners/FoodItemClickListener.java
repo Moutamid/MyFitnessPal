@@ -1,7 +1,7 @@
 package com.moutamid.myfitnesspal.listners;
 
-import com.moutamid.myfitnesspal.models.TrainingModel;
+import com.moutamid.myfitnesspal.models.FoodItemModel;
 
 public interface FoodItemClickListener {
-    void onClick(TrainingModel model);
+    void onClick(FoodItemModel model);
 }
