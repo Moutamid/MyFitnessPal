@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.fxn.stash.Stash;
 import com.moutamid.myfitnesspal.R;
 import com.moutamid.myfitnesspal.databinding.ActivityTrainingBinding;
+import com.moutamid.myfitnesspal.models.TrainingModel;
 import com.moutamid.myfitnesspal.utili.Constants;
 
 public class TrainingActivity extends AppCompatActivity {
@@ -25,87 +26,45 @@ public class TrainingActivity extends AppCompatActivity {
 
         binding.back.setOnClickListener(v -> onBackPressed());
 
-
     }
 
 
     private void initClickListners() {
 
-        binding.absBeginner.setOnClickListener(v -> {
-            Stash.put(Constants.Level , Constants.Beginner);
+        binding.abs.setOnClickListener(v -> {
             Stash.put(Constants.TRAINING_TYPE , Constants.ABS);
             startActivity(new Intent(this, TrainingExerciseActivity.class));
         });
-        binding.chestBeginner.setOnClickListener(v -> {
-            Stash.put(Constants.Level , Constants.Beginner);
+        binding.chest.setOnClickListener(v -> {
             Stash.put(Constants.TRAINING_TYPE , Constants.CHEST);
             startActivity(new Intent(this, TrainingExerciseActivity.class));
         });
-        binding.armBeginner.setOnClickListener(v -> {
-            Stash.put(Constants.Level , Constants.Beginner);
-            Stash.put(Constants.TRAINING_TYPE , Constants.ARM);
+        binding.forearm.setOnClickListener(v -> {
+            Stash.put(Constants.TRAINING_TYPE , Constants.FOREARM);
             startActivity(new Intent(this, TrainingExerciseActivity.class));
         });
-        binding.legBeginner.setOnClickListener(v -> {
-            Stash.put(Constants.Level , Constants.Beginner);
-            Stash.put(Constants.TRAINING_TYPE , Constants.LEG);
+        binding.biceps.setOnClickListener(v -> {
+            Stash.put(Constants.TRAINING_TYPE , Constants.BICEPS);
             startActivity(new Intent(this, TrainingExerciseActivity.class));
         });
-        binding.shoulderBeginner.setOnClickListener(v -> {
-            Stash.put(Constants.Level , Constants.Beginner);
+        binding.triceps.setOnClickListener(v -> {
+            Stash.put(Constants.TRAINING_TYPE , Constants.TRICEPS);
+            startActivity(new Intent(this, TrainingExerciseActivity.class));
+        });
+        binding.shoulder.setOnClickListener(v -> {
             Stash.put(Constants.TRAINING_TYPE , Constants.SHOULDER);
             startActivity(new Intent(this, TrainingExerciseActivity.class));
         });
-
-        binding.absIntermediate.setOnClickListener(v -> {
-            Stash.put(Constants.Level , Constants.Intermediate);
-            Stash.put(Constants.TRAINING_TYPE , Constants.ABS);
+        binding.calves.setOnClickListener(v -> {
+            Stash.put(Constants.TRAINING_TYPE , Constants.CALVES);
             startActivity(new Intent(this, TrainingExerciseActivity.class));
         });
-        binding.chestIntermediate.setOnClickListener(v -> {
-            Stash.put(Constants.Level , Constants.Intermediate);
-            Stash.put(Constants.TRAINING_TYPE , Constants.CHEST);
+        binding.hip.setOnClickListener(v -> {
+            Stash.put(Constants.TRAINING_TYPE , Constants.HIP);
             startActivity(new Intent(this, TrainingExerciseActivity.class));
         });
-        binding.armIntermediate.setOnClickListener(v -> {
-            Stash.put(Constants.Level , Constants.Intermediate);
-            Stash.put(Constants.TRAINING_TYPE , Constants.ARM);
-            startActivity(new Intent(this, TrainingExerciseActivity.class));
-        });
-        binding.legIntermediate.setOnClickListener(v -> {
-            Stash.put(Constants.Level , Constants.Intermediate);
-            Stash.put(Constants.TRAINING_TYPE , Constants.LEG);
-            startActivity(new Intent(this, TrainingExerciseActivity.class));
-        });
-        binding.shoulderIntermediate.setOnClickListener(v -> {
-            Stash.put(Constants.Level , Constants.Intermediate);
-            Stash.put(Constants.TRAINING_TYPE , Constants.SHOULDER);
-            startActivity(new Intent(this, TrainingExerciseActivity.class));
-        });
-
-        binding.absAdvance.setOnClickListener(v -> {
-            Stash.put(Constants.Level , Constants.Advance);
-            Stash.put(Constants.TRAINING_TYPE , Constants.ABS);
-            startActivity(new Intent(this, TrainingExerciseActivity.class));
-        });
-        binding.chestAdvance.setOnClickListener(v -> {
-            Stash.put(Constants.Level , Constants.Advance);
-            Stash.put(Constants.TRAINING_TYPE , Constants.CHEST);
-            startActivity(new Intent(this, TrainingExerciseActivity.class));
-        });
-        binding.armAdvance.setOnClickListener(v -> {
-            Stash.put(Constants.Level , Constants.Advance);
-            Stash.put(Constants.TRAINING_TYPE , Constants.ARM);
-            startActivity(new Intent(this, TrainingExerciseActivity.class));
-        });
-        binding.legAdvance.setOnClickListener(v -> {
-            Stash.put(Constants.Level , Constants.Advance);
-            Stash.put(Constants.TRAINING_TYPE , Constants.LEG);
-            startActivity(new Intent(this, TrainingExerciseActivity.class));
-        });
-        binding.shoulderAdvance.setOnClickListener(v -> {
-            Stash.put(Constants.Level , Constants.Advance);
-            Stash.put(Constants.TRAINING_TYPE , Constants.SHOULDER);
+        binding.backExercise.setOnClickListener(v -> {
+            Stash.put(Constants.TRAINING_TYPE , Constants.BACK);
             startActivity(new Intent(this, TrainingExerciseActivity.class));
         });
 

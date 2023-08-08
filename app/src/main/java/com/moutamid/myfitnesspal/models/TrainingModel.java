@@ -5,20 +5,16 @@ import java.util.ArrayList;
 public class TrainingModel {
     String name;
     String description;
-    int gif;
-    int time;
-    boolean duration;
-    ArrayList<String> focusAreas;
+    String gif;
+    String focusAreas;
 
     public TrainingModel() {
     }
 
-    public TrainingModel(String name, String description, int gif, int time, boolean duration, ArrayList<String> focusAreas) {
+    public TrainingModel(String name, String description, String gif, String focusAreas) {
         this.name = name;
         this.description = description;
         this.gif = gif;
-        this.time = time;
-        this.duration = duration;
         this.focusAreas = focusAreas;
     }
 
@@ -30,28 +26,12 @@ public class TrainingModel {
         this.name = name;
     }
 
-    public int getGif() {
+    public String getGif() {
         return gif;
     }
 
-    public void setGif(int gif) {
+    public void setGif(String gif) {
         this.gif = gif;
-    }
-
-    public int getTime() {
-        return time;
-    }
-
-    public void setTime(int time) {
-        this.time = time;
-    }
-
-    public boolean isDuration() {
-        return duration;
-    }
-
-    public void setDuration(boolean duration) {
-        this.duration = duration;
     }
 
     public String getDescription() {
@@ -62,11 +42,11 @@ public class TrainingModel {
         this.description = description;
     }
 
-    public ArrayList<String> getFocusAreas() {
-        return focusAreas;
+    public void setFocusAreas(String focusAreas) {
+        this.focusAreas = focusAreas;
     }
 
-    public void setFocusAreas(ArrayList<String> focusAreas) {
-        this.focusAreas = focusAreas;
+    public String getFocusAreas() {
+        return focusAreas;
     }
 }

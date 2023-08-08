@@ -17,10 +17,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.moutamid.myfitnesspal.R;
 import com.moutamid.myfitnesspal.models.TrainingModel;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.TrainingVH> {
     Context context;
@@ -41,23 +44,8 @@ public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.Traini
     public void onBindViewHolder(@NonNull TrainingVH holder, int position) {
         TrainingModel model = list.get(holder.getAdapterPosition());
 
-        holder.gif.setImageResource(model.getGif());
+        Glide.with(context).load(model.getGif()).into(holder.gif);
         holder.name.setText(model.getName());
-
-        if (model.isDuration()){
-           if (model.getTime() >= 60){
-               int s = model.getTime();
-               int sec = s % 60;
-               int min = (s / 60) % 60;
-               holder.time.setText(min + " : " + sec);
-           } else if (model.getTime() >= 10) {
-               holder.time.setText("00 : " + model.getTime());
-           } else {
-               holder.time.setText("00 : 0" + model.getTime());
-           }
-        } else {
-            holder.time.setText("x" + model.getTime());
-        }
 
         holder.itemView.setOnClickListener(v -> {
             showDetail(model);
@@ -78,12 +66,14 @@ public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.Traini
 
         RecyclerView focusAreaRC = dialog.findViewById(R.id.focusAreaRC);
         focusAreaRC.setHasFixedSize(false);
+        String[] focusAreas = model.getFocusAreas().split(", ");
+        List<String> focusList = Arrays.asList(focusAreas);
 
-        FocusAreaAdapter adapter = new FocusAreaAdapter(context, model.getFocusAreas());
+        FocusAreaAdapter adapter = new FocusAreaAdapter(context, focusList);
         focusAreaRC.setAdapter(adapter);
         heading.setText(model.getName());
         desc.setText(model.getDescription());
-        gif.setImageResource(model.getGif());
+        Glide.with(context).load(model.getGif()).into(gif);
 
         close.setOnClickListener(v -> dialog.dismiss());
 
@@ -102,13 +92,12 @@ public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.Traini
     }
 
     public class TrainingVH extends RecyclerView.ViewHolder{
-        TextView name, time;
+        TextView name;
         ImageView gif;
         public TrainingVH(@NonNull View itemView) {
             super(itemView);
 
             name = itemView.findViewById(R.id.name);
-            time = itemView.findViewById(R.id.time);
             gif = itemView.findViewById(R.id.gif);
 
         }

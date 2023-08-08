@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
 
     <application
@@ -19,9 +20,6 @@
         tools:targetApi="31" >
         <activity
             android:name=".activities.FoodDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.StartTrainingActivity"
             android:exported="false" />
         <activity
             android:name=".activities.PerformanceActivity"

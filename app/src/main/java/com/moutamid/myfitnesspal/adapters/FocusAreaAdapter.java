@@ -13,13 +13,14 @@ import com.moutamid.myfitnesspal.R;
 import com.moutamid.myfitnesspal.models.FoodItemModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FocusAreaAdapter extends RecyclerView.Adapter<FocusAreaAdapter.FoodVH> {
 
     Context context;
-    ArrayList<String> list;
+    List<String> list;
 
-    public FocusAreaAdapter(Context context, ArrayList<String> list) {
+    public FocusAreaAdapter(Context context, List<String> list) {
         this.context = context;
         this.list = list;
     }
