@@ -21,11 +21,14 @@ import com.moutamid.myfitnesspal.utili.Constants;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity {
     ActivitySignupBinding binding;
     final Calendar calendar = Calendar.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +50,7 @@ public class SignupActivity extends AppCompatActivity {
         });
 
         binding.create.setOnClickListener(v -> {
-            if (valid()){
+            if (valid()) {
                 createAccount();
             }
         });
@@ -76,18 +79,25 @@ public class SignupActivity extends AppCompatActivity {
                     binding.weight.getEditText().getText().toString(),
                     binding.age.getEditText().getText().toString(), false
             );
-
-            Constants.databaseReference().child(Constants.Users).child(Constants.auth().getCurrentUser().getUid())
-                    .setValue(userModel).addOnSuccessListener(unused -> {
-                        Stash.put(Constants.Users, userModel.getName());
-                        Constants.dismissDialog();
-                        startActivity(new Intent(SignupActivity.this, MainActivity.class));
-                        finish();
+            Map<String, Object> weight = new HashMap<>();
+            float w = Float.parseFloat(binding.weight.getEditText().getText().toString());
+            weight.put(Constants.WEIGHT, w);
+            Constants.databaseReference().child(Constants.WEIGHT).child(Constants.auth().getCurrentUser().getUid()).push()
+                    .setValue(weight).addOnSuccessListener(u -> {
+                        Constants.databaseReference().child(Constants.Users).child(Constants.auth().getCurrentUser().getUid())
+                                .setValue(userModel).addOnSuccessListener(unused -> {
+                                    Stash.put(Constants.Users, userModel.getName());
+                                    Constants.dismissDialog();
+                                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                                    finish();
+                                }).addOnFailureListener(e -> {
+                                    Toast.makeText(SignupActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    Constants.dismissDialog();
+                                });
                     }).addOnFailureListener(e -> {
-                        Toast.makeText(SignupActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         Constants.dismissDialog();
                     });
-
         }).addOnFailureListener(e -> {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
             Constants.dismissDialog();
@@ -95,22 +105,22 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private boolean valid() {
-        if (binding.name.getEditText().getText().toString().isEmpty()){
+        if (binding.name.getEditText().getText().toString().isEmpty()) {
             binding.name.setError("Name should not be empty");
             binding.name.requestFocus();
             return false;
         }
-        if (binding.email.getEditText().getText().toString().isEmpty()){
+        if (binding.email.getEditText().getText().toString().isEmpty()) {
             binding.email.setError("Email should not be empty");
             binding.email.requestFocus();
             return false;
         }
-        if (!Patterns.EMAIL_ADDRESS.matcher(binding.email.getEditText().getText().toString()).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(binding.email.getEditText().getText().toString()).matches()) {
             binding.email.setError("Email is not valid");
             binding.email.requestFocus();
             return false;
         }
-        if (binding.password.getEditText().getText().toString().isEmpty()){
+        if (binding.password.getEditText().getText().toString().isEmpty()) {
             binding.password.setError("Password should not be empty");
             binding.password.requestFocus();
             return false;
@@ -119,17 +129,17 @@ public class SignupActivity extends AppCompatActivity {
             Toast.makeText(this, "Gender is not selected", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (binding.age.getEditText().getText().toString().isEmpty()){
+        if (binding.age.getEditText().getText().toString().isEmpty()) {
             binding.age.setError("Age should not be empty");
             binding.age.requestFocus();
             return false;
         }
-        if (binding.height.getEditText().getText().toString().isEmpty()){
+        if (binding.height.getEditText().getText().toString().isEmpty()) {
             binding.height.setError("Height should not be empty");
             binding.height.requestFocus();
             return false;
         }
-        if (binding.weight.getEditText().getText().toString().isEmpty()){
+        if (binding.weight.getEditText().getText().toString().isEmpty()) {
             binding.weight.setError("Weight should not be empty");
             binding.weight.requestFocus();
             return false;

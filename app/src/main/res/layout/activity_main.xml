@@ -15,15 +15,12 @@
         app:cardElevation="8sp"
         app:cardCornerRadius="0sp">
 
-        <TextView
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="start|center"
-            android:text="@string/app_name"
-            android:textSize="22sp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/archivo"
-            android:layout_marginStart="12sp" />
+            android:rotation="25"
+            android:layout_marginTop="5sp"
+            android:src="@drawable/logo" />
 
     </androidx.cardview.widget.CardView>
 

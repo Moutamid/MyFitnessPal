@@ -126,12 +126,19 @@ public class EditProfileActivity extends AppCompatActivity {
         user.put("weight", binding.weight.getEditText().getText().toString());
         user.put("age", binding.age.getEditText().getText().toString());
 
+        Map<String, Object> weight = new HashMap<>();
+        float w = Float.parseFloat(binding.weight.getEditText().getText().toString());
+        weight.put(Constants.WEIGHT, w);
+
         Constants.databaseReference().child(Constants.Users).child(Constants.auth().getCurrentUser().getUid())
                 .updateChildren(user).addOnSuccessListener(unused -> {
-                    Stash.put(Constants.Users, user.get("name").toString());
-                    Constants.dismissDialog();
-                    Toast.makeText(this, "Profile Updated", Toast.LENGTH_SHORT).show();
-                    finish();
+                    Constants.databaseReference().child(Constants.WEIGHT).child(Constants.auth().getCurrentUser().getUid()).push()
+                            .setValue(weight).addOnSuccessListener(u -> {
+                                Stash.put(Constants.Users, user.get("name").toString());
+                                Constants.dismissDialog();
+                                Toast.makeText(this, "Profile Updated", Toast.LENGTH_SHORT).show();
+                                finish();
+                            });
                 }).addOnFailureListener(e -> {
                     Toast.makeText(EditProfileActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     Constants.dismissDialog();

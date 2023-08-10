@@ -36,6 +36,7 @@ public class Constants {
     static Dialog dialog;
     public static final String DATEFORMATE = "dd/MM/yyyy";
     public static final String Users = "users";
+    public static final String WEIGHT = "WEIGHT";
     public static final String Beginner = "Beginner";
     public static final String Advance = "Advance";
     public static final String Intermediate = "Intermediate";
